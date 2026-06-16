@@ -1,0 +1,8 @@
+{
+  "specVersion": "1.0",
+  "messageId": "unique-msg-id-01",
+  "timestamp": "2026-05-22T10:00:00.000Z",
+  "operation": "status_update",
+  "unitIdentifierValue": "UBI-000001",
+  "status": "published"
+}

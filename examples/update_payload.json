@@ -1,0 +1,30 @@
+{
+  "specVersion": "1.0",
+  "messageId": "unique-msg-id-0000008787",
+  "timestamp": "2026-05-22T10:00:00.000Z",
+  "operation": "upsert",
+  "data": {
+    "qualityControlReport": {
+      "fields": {
+        "soc": 52.5,
+        "soh": 95,
+        "packVoltage": 50000,
+        "slumberTime": "30 minutes",
+        "temperature": "25°C",
+        "cellUnderVoltage": "2.8V",
+        "prechargeVoltage": "48V",
+        "recChargeCurrent": "50A",
+        "softwareKeySwitch": "Enabled",
+        "deltaqChargeCurrent": "25A",
+        "cellUnderVoltRecovery": "3.1V",
+        "softwareCanTermination": "120 Ohm"
+      }
+    },
+
+    "identifierAndProductData": {
+      "fields": {
+        "uniqueBatteryIdentifier": "UBI-000001"
+      }
+    }
+  }
+}
