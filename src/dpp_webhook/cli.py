@@ -142,7 +142,7 @@ def print_operation_result(result: OperationResult) -> None:
 def create_command(args: argparse.Namespace) -> int:
     serial = args.serial or generate_serial()
     result = run_operation(
-        "create",
+        "initiate",
         serial,
         secret=resolve_secret(args.secret),
         url=resolve_url(args.url),
@@ -284,7 +284,7 @@ def workflow_command(args: argparse.Namespace) -> int:
     if count < 1:
         raise ValueError("--count must be at least 1.")
 
-    print(ui.phase_header(f"🔄 DPP Workflow  ·  {count} DPP(s)  ·  create → update → activate"))
+    print(ui.phase_header(f"🔄 DPP Workflow  ·  {count} DPP(s)  ·  initiate → update → activate"))
     print(ui.lbl("Webhook URL", webhook_url))
     print(ui.lbl("Activate URL", activate_url))
     if args.dry_run:
@@ -300,29 +300,29 @@ def workflow_command(args: argparse.Namespace) -> int:
     def record(result: OperationResult) -> None:
         results.setdefault(result.serial, {})[result.operation] = result
 
-    print(ui.phase_header("📦 Phase 1  ▸  create"))
+    print(ui.phase_header("📦 Phase 1  ▸  initiate"))
     for index in range(1, count + 1):
         serial = generate_serial()
         serials.append(serial)
         print(ui.item_header(index, count, "📦 Creating DPP"))
         try:
             result = run_operation_verbose(
-                "create", serial,
+                "initiate", serial,
                 secret=secret, url=webhook_url,
                 dry_run=args.dry_run, timeout_seconds=args.timeout,
             )
         except WebhookClientError:
-            print(ui.err_line("Create failed. Stopping workflow."))
+            print(ui.err_line("Initiate failed. Stopping workflow."))
             print(ui.summary_table(serials, results))
             return 1
         record(result)
         if not result.ok:
-            print(ui.err_line(f"Create failed (status {result.status}). Stopping workflow."))
+            print(ui.err_line(f"Initiate failed (status {result.status}). Stopping workflow."))
             print(ui.summary_table(serials, results))
             return 1
 
-    if not confirm("\nProceed to update (BMS update) the created DPPs?", args.yes):
-        print(ui.c("  🛑 Stopped after create.", ui.DIM))
+    if not confirm("\nProceed to update (BMS update) the initiated DPPs?", args.yes):
+        print(ui.c("  🛑 Stopped after initiate.", ui.DIM))
         print(ui.summary_table(serials, results))
         return 0
 
@@ -398,8 +398,8 @@ def build_parser() -> argparse.ArgumentParser:
     send.add_argument("--dry-run", action="store_true", help="Print request without sending.")
     send.set_defaults(handler=send_command)
 
-    create = subparsers.add_parser("create", help="Create a DPP (upsert). Generates a serial if omitted.")
-    add_operation_args(create, "create")
+    create = subparsers.add_parser("initiate", help="Initiate a DPP (upsert). Generates a serial if omitted.")
+    add_operation_args(create, "initiate")
     create.set_defaults(handler=create_command)
 
     activate = subparsers.add_parser("activate", help="Publish/activate a DPP by serial (status_update).")
@@ -412,9 +412,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     workflow = subparsers.add_parser(
         "workflow",
-        help="Run create -> activate -> update for N DPPs end to end.",
+        help="Run initiate -> activate -> update for N DPPs end to end.",
     )
-    workflow.add_argument("--count", type=int, default=3, help="Number of DPPs to create. Defaults to 3.")
+    workflow.add_argument("--count", type=int, default=3, help="Number of DPPs to initiate. Defaults to 3.")
     workflow.add_argument("--yes", action="store_true", help="Skip confirmation prompts.")
     workflow.add_argument("--secret", help="Webhook secret. Defaults to DPP_WEBHOOK_SECRET.")
     workflow.add_argument("--url", help="Webhook ingestion URL. Defaults to DPP_WEBHOOK_URL.")

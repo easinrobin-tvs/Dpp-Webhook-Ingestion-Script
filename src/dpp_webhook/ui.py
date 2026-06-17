@@ -157,7 +157,7 @@ def summary_table(
 ) -> str:
     S, O = 22, 12
     top = f"╔{'═' * S}╦{'═' * O}╦{'═' * O}╦{'═' * O}╗"
-    hdr = f"║{'Serial':<{S}}║{'Create':<{O}}║{'Update':<{O}}║{'Activate':<{O}}║"
+    hdr = f"║{'Serial':<{S}}║{'Initiate':<{O}}║{'Update':<{O}}║{'Activate':<{O}}║"
     mid = f"╠{'═' * S}╬{'═' * O}╬{'═' * O}╬{'═' * O}╣"
     bot = f"╚{'═' * S}╩{'═' * O}╩{'═' * O}╩{'═' * O}╝"
 
@@ -173,7 +173,7 @@ def summary_table(
         s = serial[:S].ljust(S)
         row = (
             f"║{s}║"
-            f"{_table_cell(ops.get('create'), O)}║"
+            f"{_table_cell(ops.get('initiate'), O)}║"
             f"{_table_cell(ops.get('update'), O)}║"
             f"{_table_cell(ops.get('activate'), O)}║"
         )

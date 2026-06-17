@@ -49,10 +49,10 @@ dpp-webhook <command> [options]
 Commands:
   generate    Print signed headers and body (no HTTP call)
   send        Send signed payload to webhook URL
-  create      Create a DPP (upsert); generates a serial if omitted
+  initiate    Create a DPP (upsert); generates a serial if omitted
   activate    Publish/activate a DPP by serial (status_update)
   update      BMS-like update of a published DPP by serial (upsert)
-  workflow    Run create → update → activate for N DPPs end to end
+  workflow    Run initiate → update → activate for N DPPs end to end
 ```
 
 ---
@@ -140,20 +140,20 @@ examples/activate_payload.json   # operation: status_update (publish by serial)
 examples/update_payload.json     # operation: upsert (BMS-like update)
 ```
 
-### create
+### initiate
 
 Creates a DPP. Generates a serial automatically if `--serial` is omitted.
 
 ```bash
-dpp-webhook create
+dpp-webhook initiate
 
 # Or supply your own serial
-dpp-webhook create --serial SN-XXXXXXXXXXXX
+dpp-webhook initiate --serial SN-XXXXXXXXXXXX
 ```
 
 ### activate
 
-Publishes a created DPP by serial.
+Publishes a initiated DPP by serial.
 
 ```bash
 dpp-webhook activate --serial SN-XXXXXXXXXXXX
@@ -169,16 +169,16 @@ BMS-like update on a published DPP.
 dpp-webhook update --serial SN-XXXXXXXXXXXX
 ```
 
-**Options (create / activate / update):**
+**Options (initiate / activate / update):**
 
-| Flag        | Description                                                                           |
-| ----------- | ------------------------------------------------------------------------------------- |
-| `--serial`  | Serial number. If omitted, `create` generates one; `activate`/`update` prompt for it. |
-| `--secret`  | Webhook secret. Defaults to `DPP_WEBHOOK_SECRET`.                                     |
-| `--url`     | Endpoint URL. Defaults to `DPP_WEBHOOK_URL` (or activate URL for `activate`).         |
-| `--payload` | Override default payload JSON file for the operation.                                 |
-| `--dry-run` | Print signed request without sending.                                                 |
-| `--timeout` | HTTP timeout in seconds. Defaults to `30`.                                            |
+| Flag        | Description                                                                             |
+| ----------- | --------------------------------------------------------------------------------------- |
+| `--serial`  | Serial number. If omitted, `initiate` generates one; `activate`/`update` prompt for it. |
+| `--secret`  | Webhook secret. Defaults to `DPP_WEBHOOK_SECRET`.                                       |
+| `--url`     | Endpoint URL. Defaults to `DPP_WEBHOOK_URL` (or activate URL for `activate`).           |
+| `--payload` | Override default payload JSON file for the operation.                                   |
+| `--dry-run` | Print signed request without sending.                                                   |
+| `--timeout` | HTTP timeout in seconds. Defaults to `30`.                                              |
 
 Each command prints the serial and the suggested next command on success.
 
@@ -186,7 +186,7 @@ Each command prints the serial and the suggested next command on success.
 
 ## workflow
 
-Runs the full create → update → activate pipeline for N DPPs in sequence. Pauses for confirmation between phases (skip with `--yes`). Prints a live summary table at the end.
+Runs the full initiate → update → activate pipeline for N DPPs in sequence. Pauses for confirmation between phases (skip with `--yes`). Prints a live summary table at the end.
 
 ```bash
 # 3 DPPs, interactive confirmations
@@ -203,7 +203,7 @@ dpp-webhook workflow --dry-run --yes
 
 | Flag             | Description                                                                 |
 | ---------------- | --------------------------------------------------------------------------- |
-| `--count`        | Number of DPPs to create. Defaults to `3`.                                  |
+| `--count`        | Number of DPPs to initiate. Defaults to `3`.                                |
 | `--yes`          | Skip all confirmation prompts.                                              |
 | `--secret`       | Webhook secret. Defaults to `DPP_WEBHOOK_SECRET`.                           |
 | `--url`          | Ingestion URL. Defaults to `DPP_WEBHOOK_URL`.                               |

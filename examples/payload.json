@@ -4,41 +4,76 @@
   "timestamp": "2026-05-22T10:00:00.000Z",
   "operation": "upsert",
   "data": {
-    "qualityControlReport": {
-      "fields": {
-        "soc": 50.5,
-        "soh": 98,
-        "baudrate": "600Kbps",
-        "cellType": "Li-Ion",
-        "mpc2IdNode": "NODE-002",
-        "packSerial": "PACK-2026-005",
-        "cycleTester": "CT-2000",
-        "goldenImage": "GI-2.0",
-        "packVoltage": 50000,
-        "slumberTime": "30 minutes",
-        "temperature": "25°C",
-        "chargeWakeUp": "Enabled",
-        "commProtocol": "CAN",
-        "mpc2Protocol": "v2.1",
-        "mpc2MaxActive": "100",
-        "mpc2MinActive": "100",
-        "parameterCode": "PARAM-001",
-        "prechargeTime": "5 seconds",
-        "prechargeType": 1,
-        "firmwareVersion": 2.5,
-        "cellUnderVoltage": "2.8V",
-        "prechargeVoltage": "48V",
-        "recChargeCurrent": "50A",
-        "softwareKeySwitch": "Enabled",
-        "deltaqChargeCurrent": "25A",
-        "cellUnderVoltRecovery": "3.1V",
-        "softwareCanTermination": "120 Ohm"
+    "performanceAndDurability": {
+      "sections": {
+        "batteryLifetime": {
+          "fields": {
+            "energyThroughput": 172500.8,
+            "capacityThroughput": 3420.6,
+            "cycle-lifeReferenceTest": "IEC 62660-1",
+            "expectedLifetimeInCalendarYears": 10.5,
+            "c-rateOfRelevantCycle-lifeTest(a/ah)": 1.0,
+            "numberOf(full)Charging-dischargingCycles": 2180,
+            "expectedLifetime:NumberOfCharge-dischargeCycles": 3000
+          }
+        },
+        "powerCapability": {
+          "fields": {
+            "powerFade": 6.2,
+            "originalPowerCapability": 150000,
+            "remainingPowerCapability": 140700,
+            "maximumPermittedBatteryPower": 160000,
+            "ratioBetweenNominalAllowedBatteryPower(w)AndBatteryEnergy(wh)": 1.95
+          }
+        },
+        "internalResistance": {
+          "fields": {
+            "initialInternalResistanceOfBatteryCell": 0.0145,
+            "initialInternalResistanceOfBatteryPack": 0.11,
+            "internalResistanceIncreaseOfBatteryCell": 3.8,
+            "internalResistanceIncreaseOfBatteryPack": 4.6,
+            "initialInternalResistanceOfBatteryModule": 0.042,
+            "internalResistanceIncreaseOfBatteryModule": 3.5
+          }
+        },
+        "temperatureConditions": {
+          "fields": {
+            "temperatureInformation": 26.8,
+            "temperatureRangeIdleState,LowerBoundary": -20,
+            "temperatureRangeIdleState,UpperBoundary": 60,
+            "timeSpentInExtremeTemperaturesAboveBoundary": 38,
+            "timeSpentInExtremeTemperaturesBelowBoundary": 15,
+            "timeSpentChargingDuringExtremeTemperaturesAboveBoundary": 8,
+            "timeSpentChargingDuringExtremeTemperaturesBelowBoundary": 4
+          }
+        },
+        "batteryCapacity,Energy,Voltage": {
+          "fields": {
+            "capacityFade": 4.8,
+            "ratedCapacity": 210,
+            "maximumVoltage": 58.8,
+            "minimumVoltage": 42.0,
+            "nominalVoltage": 51.2,
+            "remainingCapacity": 199.92,
+            "stateOfCharge(soc)": 85
+          }
+        },
+        "energyRoundTripEfficiency,Self-discharge": {
+          "fields": {
+            "currentSelf-dischargingRate": 1.05,
+            "initialSelf-dischargingRate": 0.75,
+            "energyRoundTripEfficiencyFade": 2.4,
+            "evolutionOfSelf-dischargingRates": 0.3,
+            "initialRoundTripEnergyEfficiency": 96.2,
+            "remainingRoundTripEnergyEfficiency": 93.8,
+            "roundTripEnergyEfficiencyAt50%OfCycleLife": 95.0
+          }
+        }
       }
     },
-
     "identifierAndProductData": {
       "fields": {
-        "uniqueBatteryIdentifier": "UBI-000001"
+        "uniqueBatteryIdentifier": "SN-61F06804BB4B"
       }
     }
   }

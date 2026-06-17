@@ -15,12 +15,12 @@ ACTIVATE_PAYLOAD_PATH = EXAMPLES_DIR / "activate_payload.json"
 UPDATE_PAYLOAD_PATH = EXAMPLES_DIR / "update_payload.json"
 
 DEFAULT_PAYLOAD_PATHS = {
-    "create": CREATE_PAYLOAD_PATH,
+    "initiate": CREATE_PAYLOAD_PATH,
     "activate": ACTIVATE_PAYLOAD_PATH,
     "update": UPDATE_PAYLOAD_PATH,
 }
 
-# Nested location of the serial number inside the create/update `data` block.
+# Nested location of the serial number inside the initiate/update `data` block.
 SERIAL_PATH = (
     "data",
     "identifierAndProductData",
@@ -87,7 +87,7 @@ def set_serial(payload: dict[str, Any], serial: str) -> None:
 
 
 def generate_serial(prefix: str = "SN") -> str:
-    """Build a unique serial number suitable for mass create."""
+    """Build a unique serial number suitable for mass initiate."""
     return f"{prefix}-{uuid4().hex[:12].upper()}"
 
 

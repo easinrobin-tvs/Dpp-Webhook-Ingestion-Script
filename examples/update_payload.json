@@ -6,15 +6,15 @@
   "data": {
     "performanceAndDurability": {
       "sections": {
-        "batteryLifetime": {
+        "batteryCapacity,Energy,Voltage": {
           "fields": {
-            "energyThroughput": 172500.8,
-            "capacityThroughput": 3420.6,
-            "cycle-lifeReferenceTest": "IEC 62660-1",
-            "expectedLifetimeInCalendarYears": 10.5,
-            "c-rateOfRelevantCycle-lifeTest(a/ah)": 1.0,
-            "numberOf(full)Charging-dischargingCycles": 2180,
-            "expectedLifetime:NumberOfCharge-dischargeCycles": 3000
+            "capacityFade": 4.8,
+            "ratedCapacity": 210,
+            "maximumVoltage": 58.8,
+            "minimumVoltage": 42.0,
+            "nominalVoltage": 51.2,
+            "remainingCapacity": 199.92,
+            "stateOfCharge(soc)": 85
           }
         },
         "powerCapability": {
@@ -26,6 +26,17 @@
             "ratioBetweenNominalAllowedBatteryPower(w)AndBatteryEnergy(wh)": 1.95
           }
         },
+        "energyRoundTripEfficiency,Self-discharge": {
+          "fields": {
+            "currentSelf-dischargingRate": 1.05,
+            "initialSelf-dischargingRate": 0.75,
+            "energyRoundTripEfficiencyFade": 2.4,
+            "evolutionOfSelf-dischargingRates": 0.3,
+            "initialRoundTripEnergyEfficiency": 96.2,
+            "remainingRoundTripEnergyEfficiency": 93.8,
+            "roundTripEnergyEfficiencyAt50%OfCycleLife": 95.0
+          }
+        },
         "internalResistance": {
           "fields": {
             "initialInternalResistanceOfBatteryCell": 0.0145,
@@ -34,6 +45,17 @@
             "internalResistanceIncreaseOfBatteryPack": 4.6,
             "initialInternalResistanceOfBatteryModule": 0.042,
             "internalResistanceIncreaseOfBatteryModule": 3.5
+          }
+        },
+        "batteryLifetime": {
+          "fields": {
+            "energyThroughput": 172500.8,
+            "capacityThroughput": 3420.6,
+            "cycle-lifeReferenceTest": "IEC 62660-1",
+            "expectedLifetimeInCalendarYears": 10.5,
+            "c-rateOfRelevantCycle-lifeTest(a/ah)": 1.0,
+            "numberOf(full)Charging-dischargingCycles": 2180,
+            "expectedLifetime:NumberOfCharge-dischargeCycles": 3000
           }
         },
         "temperatureConditions": {
@@ -47,26 +69,10 @@
             "timeSpentChargingDuringExtremeTemperaturesBelowBoundary": 4
           }
         },
-        "batteryCapacity,Energy,Voltage": {
+        "negativeEvents": {
           "fields": {
-            "capacityFade": 4.8,
-            "ratedCapacity": 210,
-            "maximumVoltage": 58.8,
-            "minimumVoltage": 42.0,
-            "nominalVoltage": 51.2,
-            "remainingCapacity": 199.92,
-            "stateOfCharge(soc)": 79
-          }
-        },
-        "energyRoundTripEfficiency,Self-discharge": {
-          "fields": {
-            "currentSelf-dischargingRate": 1.05,
-            "initialSelf-dischargingRate": 0.75,
-            "energyRoundTripEfficiencyFade": 2.4,
-            "evolutionOfSelf-dischargingRates": 0.3,
-            "initialRoundTripEnergyEfficiency": 96.2,
-            "remainingRoundTripEnergyEfficiency": 93.8,
-            "roundTripEnergyEfficiencyAt50%OfCycleLife": 95.0
+            "numberOfOverchargeEvents": 1,
+            "numberOfDeepDischargeEvents": 1
           }
         }
       }
