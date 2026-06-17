@@ -284,7 +284,7 @@ def workflow_command(args: argparse.Namespace) -> int:
     if count < 1:
         raise ValueError("--count must be at least 1.")
 
-    print(ui.phase_header(f"🔄 DPP Workflow  ·  {count} DPP(s)  ·  create → activate → update"))
+    print(ui.phase_header(f"🔄 DPP Workflow  ·  {count} DPP(s)  ·  create → update → activate"))
     print(ui.lbl("Webhook URL", webhook_url))
     print(ui.lbl("Activate URL", activate_url))
     if args.dry_run:
@@ -321,36 +321,12 @@ def workflow_command(args: argparse.Namespace) -> int:
             print(ui.summary_table(serials, results))
             return 1
 
-    if not confirm("\nProceed to activate (publish) the created DPPs?", args.yes):
+    if not confirm("\nProceed to update (BMS update) the created DPPs?", args.yes):
         print(ui.c("  🛑 Stopped after create.", ui.DIM))
         print(ui.summary_table(serials, results))
         return 0
 
-    print(ui.phase_header("🚀 Phase 2  ▸  activate"))
-    for index, serial in enumerate(serials, start=1):
-        print(ui.item_header(index, count, f"🚀 Activating DPP  serial={ui.c(serial, ui.BRIGHT_MAGENTA)}"))
-        try:
-            result = run_operation_verbose(
-                "activate", serial,
-                secret=secret, url=activate_url,
-                dry_run=args.dry_run, timeout_seconds=args.timeout,
-            )
-        except WebhookClientError:
-            print(ui.err_line("Activate failed. Stopping workflow."))
-            print(ui.summary_table(serials, results))
-            return 1
-        record(result)
-        if not result.ok:
-            print(ui.err_line(f"Activate failed (status {result.status}). Stopping workflow."))
-            print(ui.summary_table(serials, results))
-            return 1
-
-    if not confirm("\nProceed to update (BMS update) the published DPPs?", args.yes):
-        print(ui.c("  🛑 Stopped after activate.", ui.DIM))
-        print(ui.summary_table(serials, results))
-        return 0
-
-    print(ui.phase_header("🔧 Phase 3  ▸  update (BMS)"))
+    print(ui.phase_header("🔧 Phase 2  ▸  update (BMS)"))
     for index, serial in enumerate(serials, start=1):
         print(ui.item_header(index, count, f"🔧 Updating DPP  serial={ui.c(serial, ui.BRIGHT_MAGENTA)}"))
         try:
@@ -366,6 +342,30 @@ def workflow_command(args: argparse.Namespace) -> int:
         record(result)
         if not result.ok:
             print(ui.err_line(f"Update failed (status {result.status}). Stopping workflow."))
+            print(ui.summary_table(serials, results))
+            return 1
+
+    if not confirm("\nProceed to activate (publish) the updated DPPs?", args.yes):
+        print(ui.c("  🛑 Stopped after update.", ui.DIM))
+        print(ui.summary_table(serials, results))
+        return 0
+
+    print(ui.phase_header("🚀 Phase 3  ▸  activate"))
+    for index, serial in enumerate(serials, start=1):
+        print(ui.item_header(index, count, f"🚀 Activating DPP  serial={ui.c(serial, ui.BRIGHT_MAGENTA)}"))
+        try:
+            result = run_operation_verbose(
+                "activate", serial,
+                secret=secret, url=activate_url,
+                dry_run=args.dry_run, timeout_seconds=args.timeout,
+            )
+        except WebhookClientError:
+            print(ui.err_line("Activate failed. Stopping workflow."))
+            print(ui.summary_table(serials, results))
+            return 1
+        record(result)
+        if not result.ok:
+            print(ui.err_line(f"Activate failed (status {result.status}). Stopping workflow."))
             print(ui.summary_table(serials, results))
             return 1
 

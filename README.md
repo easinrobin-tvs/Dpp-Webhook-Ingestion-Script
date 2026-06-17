@@ -52,7 +52,7 @@ Commands:
   create      Create a DPP (upsert); generates a serial if omitted
   activate    Publish/activate a DPP by serial (status_update)
   update      BMS-like update of a published DPP by serial (upsert)
-  workflow    Run create → activate → update for N DPPs end to end
+  workflow    Run create → update → activate for N DPPs end to end
 ```
 
 ---
@@ -186,7 +186,7 @@ Each command prints the serial and the suggested next command on success.
 
 ## workflow
 
-Runs the full create → activate → update pipeline for N DPPs in sequence. Pauses for confirmation between phases (skip with `--yes`). Prints a live summary table at the end.
+Runs the full create → update → activate pipeline for N DPPs in sequence. Pauses for confirmation between phases (skip with `--yes`). Prints a live summary table at the end.
 
 ```bash
 # 3 DPPs, interactive confirmations

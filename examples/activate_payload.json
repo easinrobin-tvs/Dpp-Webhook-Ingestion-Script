@@ -3,6 +3,6 @@
   "messageId": "unique-msg-id-01",
   "timestamp": "2026-05-22T10:00:00.000Z",
   "operation": "status_update",
-  "unitIdentifierValue": "UBI-000001",
+  "unitIdentifierValue": "UBI-2026-000123",
   "status": "published"
 }

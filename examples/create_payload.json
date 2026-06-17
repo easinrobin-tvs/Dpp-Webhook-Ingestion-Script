@@ -4,25 +4,10 @@
   "timestamp": "2026-05-22T10:00:00.000Z",
   "operation": "upsert",
   "data": {
-    "qualityControlReport": {
-      "fields": {
-        "soc": 50.5,
-        "soh": 98,
-        "packVoltage": 51000,
-        "slumberTime": "30 minutes",
-        "temperature": "25°C",
-        "chargeWakeUp": "Enabled",
-        "commProtocol": "CAN",
-        "mpc2Protocol": "v2.1",
-        "mpc2MaxActive": "100",
-        "mpc2MinActive": "100",
-        "parameterCode": "PARAM-001"
-      }
-    },
     "identifierAndProductData": {
       "fields": {
-        "batteryName": "P5X EV Battery Pack 100kWh",
-        "uniqueBatteryIdentifier": "UBI-000001"
+        "batteryName": "Cleantron Battery Pack P4X",
+        "uniqueBatteryIdentifier": "UBI-2026-000123"
       }
     }
   }
