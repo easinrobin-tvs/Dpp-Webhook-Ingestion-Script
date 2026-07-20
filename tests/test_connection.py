@@ -42,7 +42,7 @@ class TestConnectionResult(unittest.TestCase):
             endpoint_url="/api/webhooks/dpps/01KV62G32NV20A9XK9R2ZJ9J0T",
             unit_identifier_path="data.identifierAndProductData.fields.uniqueBatteryIdentifier",
             name="Test Connection",
-            base_url="https://cleantron-api.digiprodpass.com/api",
+            base_url="https://cleantron-api.digiprodpass.com",
         )
         self.assertEqual(
             result.webhook_url,
@@ -56,7 +56,7 @@ class TestConnectionResult(unittest.TestCase):
             endpoint_url="/api/webhooks/dpps/01KV62G32NV20A9XK9R2ZJ9J0T",
             unit_identifier_path="data.identifierAndProductData.fields.uniqueBatteryIdentifier",
             name="Test Connection",
-            base_url="https://cleantron-api.digiprodpass.com/api",
+            base_url="https://cleantron-api.digiprodpass.com",
         )
         self.assertEqual(
             result.activate_url,

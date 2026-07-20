@@ -120,7 +120,7 @@ def prompt_for_serial() -> str:
     return serial
 
 
-def print_signed_payload(signed: object) -> None:
+def print_signed_payload(signed: Any) -> None:
     print(ui.phase_header("🔐 Generate Signed Payload"))
     print(ui.lbl("X-DPP-Timestamp", signed.timestamp))
     print(ui.lbl("X-DPP-Signature", ui.c(signed.signature, ui.DIM)))
@@ -197,7 +197,6 @@ def create_command(args: argparse.Namespace) -> int:
         timeout_seconds=args.timeout,
         battery_name=battery_name,
     )
-    print(f"\n  🔍 DEBUG: create_command passed battery_name={battery_name!r}")
     print_operation_result(result)
     if result.ok:
         print(f"\nSerial: {result.serial}")
@@ -403,6 +402,7 @@ def resolve_oauth_config(args: argparse.Namespace) -> OAuthConfig:
         username = credentials["DPP_USERNAME"]
         password = credentials["DPP_PASSWORD"]
 
+    assert username and password, "username and password must be set"
     return OAuthConfig(
         sso_url=sso_url,
         realm=realm,

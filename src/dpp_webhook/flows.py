@@ -129,7 +129,6 @@ def run_operation(
     """Load the operation's payload, inject the serial + fresh metadata, sign it,
     and POST it (unless dry_run)."""
     path = payload_path or DEFAULT_PAYLOAD_PATHS[operation]
-    print(f"\n  🔍 DEBUG: run_operation received battery_name={battery_name!r}")
     payload = prepare_payload(path, serial, message_id=message_id, battery_name=battery_name)
     resolved_serial = get_serial(payload) or (serial or "")
     signed = sign_payload(payload, secret)

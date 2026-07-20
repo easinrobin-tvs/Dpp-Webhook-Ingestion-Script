@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+from typing import Any
 
 RESET          = "\033[0m"
 BOLD           = "\033[1m"
@@ -153,7 +154,7 @@ def _table_cell(result: object, width: int) -> str:
 
 def summary_table(
     serials: list[str],
-    results: dict[str, dict[str, object]],
+    results: dict[str, dict[str, Any]],
 ) -> str:
     S, O = 22, 12
     top = f"╔{'═' * S}╦{'═' * O}╦{'═' * O}╦{'═' * O}╗"

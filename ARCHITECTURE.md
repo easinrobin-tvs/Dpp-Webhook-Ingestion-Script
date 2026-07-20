@@ -96,7 +96,7 @@ signing_input = f"{timestamp}.{body}".encode("utf-8")
 
 ### Step 4 — HMAC-SHA256 Signature
 
-```python
+```python 
 # signing.py
 import hashlib
 import hmac
