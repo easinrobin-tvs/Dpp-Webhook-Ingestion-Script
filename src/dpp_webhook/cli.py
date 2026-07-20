@@ -38,6 +38,19 @@ from . import ui
 DEFAULT_PAYLOAD_PATH = Path("examples/payload.json")
 
 
+DEFAULT_BATTERY_NAME = "Cleantron Battery Pack P4X"
+
+
+def prompt_battery_name(default: str = DEFAULT_BATTERY_NAME) -> str | None:
+    """Ask if user wants to customize battery name. Returns custom name or None
+    to use the template default."""
+    answer = input(f"  Customize battery name? ({default}) [y/N]: ").strip().lower()
+    if answer not in ("y", "yes"):
+        return None  # Use template default
+    name = input(f"  Battery name [{default}]: ").strip()
+    return name if name else default
+
+
 def load_dotenv(path: Path = Path(".env")) -> None:
     """Load KEY=VALUE pairs from a .env file into os.environ without overriding
     variables already set in the shell. No third-party dependency."""
@@ -161,11 +174,18 @@ def print_operation_result(result: OperationResult) -> None:
 def create_command(args: argparse.Namespace) -> int:
     serial = args.serial or generate_serial()
 
+    # Prompt for battery name (show default from template)
+    battery_name = args.battery_name
+    if not battery_name and not args.yes:
+        battery_name = prompt_battery_name()
+
     # Show connection info
     url = resolve_url(args.url)
     print(ui.phase_header("📦 Initiate DPP"))
     print(f"  {ui.lbl('Webhook URL', url)}")
     print(f"  {ui.lbl('Serial', ui.c(serial, ui.BRIGHT_MAGENTA))}")
+    if battery_name:
+        print(f"  {ui.lbl('Battery Name', ui.c(battery_name, ui.BRIGHT_MAGENTA))}")
 
     result = run_operation(
         "initiate",
@@ -175,7 +195,9 @@ def create_command(args: argparse.Namespace) -> int:
         payload_path=args.payload,
         dry_run=args.dry_run,
         timeout_seconds=args.timeout,
+        battery_name=battery_name,
     )
+    print(f"\n  🔍 DEBUG: create_command passed battery_name={battery_name!r}")
     print_operation_result(result)
     if result.ok:
         print(f"\nSerial: {result.serial}")
@@ -264,6 +286,7 @@ def run_operation_verbose(
     payload_path: Path | None = None,
     dry_run: bool = False,
     timeout_seconds: float = 30,
+    battery_name: str | None = None,
 ) -> OperationResult:
     from .flows import (
         get_serial,
@@ -273,7 +296,7 @@ def run_operation_verbose(
     path = payload_path or DEFAULT_PAYLOAD_PATHS[operation]
     print(ui.lbl("Payload file", str(path)))
 
-    payload = flows_prepare_payload(path, serial)
+    payload = flows_prepare_payload(path, serial, battery_name=battery_name)
     resolved_serial = get_serial(payload) or (serial or "")
     print(ui.lbl("Serial", ui.c(resolved_serial, ui.BRIGHT_MAGENTA, ui.BOLD)))
     print(ui.lbl("messageId", str(payload["messageId"])))
@@ -1180,12 +1203,23 @@ def workflow_command(args: argparse.Namespace) -> int:
     for index in range(1, count + 1):
         serial = generate_serial()
         serials.append(serial)
-        print(ui.item_header(index, count, "📦 Creating DPP"))
+
+        # Prompt for battery name per DPP
+        battery_name = args.battery_name
+        if not battery_name and not args.yes:
+            print(ui.item_header(index, count, "📦 Creating DPP"))
+            battery_name = prompt_battery_name(f"{DEFAULT_BATTERY_NAME} #{index}")
+        else:
+            print(ui.item_header(index, count, "📦 Creating DPP"))
+
+        print(f"  {ui.lbl('Battery Name', ui.c(battery_name or DEFAULT_BATTERY_NAME, ui.BRIGHT_MAGENTA))}")
+
         try:
             result = run_operation_verbose(
                 "initiate", serial,
                 secret=secret, url=webhook_url,
                 dry_run=args.dry_run, timeout_seconds=args.timeout,
+                battery_name=battery_name,
             )
         except WebhookClientError:
             print(ui.err_line("Initiate failed. Stopping workflow."))
@@ -1424,6 +1458,10 @@ def build_parser() -> argparse.ArgumentParser:
     )
     workflow.add_argument("--timeout", type=float, default=30, help="HTTP timeout in seconds.")
     workflow.add_argument("--dry-run", action="store_true", help="Print requests without sending.")
+    workflow.add_argument(
+        "--battery-name",
+        help="Battery name for all DPPs. Will prompt per DPP if not provided.",
+    )
     workflow.set_defaults(handler=workflow_command)
 
     return parser
@@ -1445,6 +1483,10 @@ def add_operation_args(parser: argparse.ArgumentParser, operation: str) -> None:
     parser.add_argument("--url", help=url_help)
     parser.add_argument("--timeout", type=float, default=30, help="HTTP timeout in seconds.")
     parser.add_argument("--dry-run", action="store_true", help="Print request without sending.")
+    parser.add_argument(
+        "--battery-name",
+        help="Battery name. Will prompt if not provided.",
+    )
 
 
 def add_common_args(parser: argparse.ArgumentParser) -> None:

@@ -1,3 +1,4 @@
+"""DPP lifecycle operations — payload loading, serial injection, signing, sending."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -99,10 +100,15 @@ def prepare_payload(
     *,
     message_id: str | None = None,
     timestamp: str | None = None,
+    battery_name: str | None = None,
 ) -> dict[str, Any]:
     payload = load_payload(payload_path)
     if serial is not None:
         set_serial(payload, serial)
+    # Inject battery name if provided (initiate/update payloads only)
+    if battery_name is not None:
+        payload["data"]["identifierAndProductData"]["fields"]["batteryName"] = battery_name
+        print(f"\n  🏷️  Battery name set to: {battery_name}")
     payload["messageId"] = message_id or str(uuid4())
     payload["timestamp"] = timestamp or utc_timestamp_ms()
     return payload
@@ -118,11 +124,13 @@ def run_operation(
     dry_run: bool = False,
     timeout_seconds: float = 30,
     message_id: str | None = None,
+    battery_name: str | None = None,
 ) -> OperationResult:
     """Load the operation's payload, inject the serial + fresh metadata, sign it,
     and POST it (unless dry_run)."""
     path = payload_path or DEFAULT_PAYLOAD_PATHS[operation]
-    payload = prepare_payload(path, serial, message_id=message_id)
+    print(f"\n  🔍 DEBUG: run_operation received battery_name={battery_name!r}")
+    payload = prepare_payload(path, serial, message_id=message_id, battery_name=battery_name)
     resolved_serial = get_serial(payload) or (serial or "")
     signed = sign_payload(payload, secret)
 
