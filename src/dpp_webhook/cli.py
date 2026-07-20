@@ -67,7 +67,9 @@ def prepare_payload(args: argparse.Namespace) -> Any:
     if args.preserve_message_id:
         return payload
 
+    from .signing import utc_timestamp_ms
     payload["messageId"] = args.message_id or str(uuid4())
+    payload["timestamp"] = args.timestamp or utc_timestamp_ms()
     return payload
 
 

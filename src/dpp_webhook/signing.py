@@ -39,6 +39,10 @@ def sign_payload(
     webhook_secret: str,
     timestamp: str | None = None,
 ) -> SignedWebhookPayload:
+    # If payload is a dict with a timestamp field, use it as the signing
+    # timestamp so body and header always agree. Otherwise generate fresh.
+    if timestamp is None and isinstance(payload, dict) and "timestamp" in payload:
+        timestamp = str(payload["timestamp"])
     timestamp = timestamp or utc_timestamp_ms()
     body = payload if isinstance(payload, str) else compact_json(payload)
     signing_input = f"{timestamp}.{body}".encode("utf-8")

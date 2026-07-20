@@ -82,6 +82,8 @@ def set_serial(payload: dict[str, Any], serial: str) -> None:
     if isinstance(node, dict):
         node[SERIAL_PATH[-1]] = serial
 
+    # Only set unitIdentifierValue if the template already has it
+    # (activate payloads have it; initiate/update use the nested path above)
     if "unitIdentifierValue" in payload:
         payload["unitIdentifierValue"] = serial
 
