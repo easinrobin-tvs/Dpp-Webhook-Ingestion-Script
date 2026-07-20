@@ -1,0 +1,1844 @@
+{
+  "info": {
+    "_postman_id": "9c29777d-7929-4011-ad90-82bc469c3501",
+    "name": "Cleantron - Webhook | DPP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41189801",
+    "_collection_link": "https://go.postman.co/collection/41189801-9c29777d-7929-4011-ad90-82bc469c3501?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Connections",
+      "item": [
+        {
+          "name": "Create New Connection - Webhook",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.collectionVariables.set(\"CONNECTION_ID\", pm.response.json().data.id);",
+                  "pm.collectionVariables.set('DPP_WEBHOOK_SECRET', pm.response.json().data.webhookSecret);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"EV Battery Assembly Line – Webhook 03\",\n    \"description\": \"Inbound webhook for battery cell DPP data from assembly line controller\",\n    \"providerTypeId\": \"01KS593JNR3AG9ECWFV7Q0K8HH\",\n    \"lifecycleState\": \"active\",\n    \"config\": {\n        \"productId\": \"01KQYD3G8PB93P4BRD4GFDWXC5\",\n        \"unitIdentifierFieldId\": \"01KQWAPJFEVGK2F5SMDD3S1PGS\",\n        \"defaultOperation\": \"upsert\",\n        \"maxPayloadSizeBytes\": 5524288,\n        \"signature\": {\n            \"scheme\": \"hmac_sha256\",\n            \"header\": \"X-DPP-Signature\",\n            \"timestampHeader\": \"X-DPP-Timestamp\",\n            \"replayWindowSeconds\": 300\n        },\n        \"allowedSourceIps\": null\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/connections",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "connections"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create New Connection - Webhook",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"EV Battery Assembly Line – Webhook\",\n    \"description\": \"Inbound webhook for battery cell DPP data from assembly line controller\",\n    \"providerTypeId\": \"01KS593JNR3AG9ECWFV7Q0K8HH\",\n    \"lifecycleState\": \"active\",\n    \"config\": {\n        \"productId\": \"01KTY0YXQW5P7N3WET63Z7EMMJ\",\n        \"unitIdentifierFieldId\": \"01KTXXC34F5KGP6NVPHK6RY2HP\",\n        \"defaultOperation\": \"upsert\",\n        \"maxPayloadSizeBytes\": 5524288,\n        \"signature\": {\n            \"scheme\": \"hmac_sha256\",\n            \"header\": \"X-DPP-Signature\",\n            \"timestampHeader\": \"X-DPP-Timestamp\",\n            \"replayWindowSeconds\": 300\n        },\n        \"allowedSourceIps\": null\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BASE_URL}}/connections",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 201
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 16:40:37 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "650"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "563a5cffa0fa4bc2b032a63707db1220"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "98"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"28a-POLVSJ9TebjKnpgK6RVaaYqBROI\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"The Connections has been created successfully.\",\n    \"data\": {\n        \"id\": \"01KV62G32NV20A9XK9R2ZJ9J0T\",\n        \"name\": \"EV Battery Assembly Line – Webhook\",\n        \"providerType\": \"webhook_receive\",\n        \"lifecycleState\": \"active\",\n        \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n        \"createdAt\": \"2026-06-15T16:40:37.240Z\",\n        \"lastTestedAt\": null,\n        \"specRevision\": 1,\n        \"webhookSecret\": \"aiaQ457_6AsazMpkxrz_uOQAV2UaxivOkiqgwk0sVMA\",\n        \"unitIdentifierPath\": \"data.identifierAndProductData.fields.uniqueBatteryIdentifier\",\n        \"endpointUrl\": \"/api/webhooks/dpps/01KV62G32NV20A9XK9R2ZJ9J0T\"\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T16:40:37.254Z\",\n        \"requestId\": \"563a5cffa0fa4bc2b032a63707db1220\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Connection",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/connections/{{CONNECTION_ID}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connections",
+                "{{CONNECTION_ID}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Connection",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/connections/{{CONNECTION_ID}}",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "connections",
+                    "{{CONNECTION_ID}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 16:40:49 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "445"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "85925ca31c90907326c849426c35449d"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "98"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1bd-yxbjqsM+11GVsZAbfZ2JpEEwfbY\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully retrieved the requested Connections.\",\n    \"data\": {\n        \"id\": \"01KV62G32NV20A9XK9R2ZJ9J0T\",\n        \"name\": \"EV Battery Assembly Line – Webhook\",\n        \"providerType\": \"webhook_receive\",\n        \"lifecycleState\": \"active\",\n        \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n        \"createdAt\": \"2026-06-15T16:40:37.240Z\",\n        \"lastTestedAt\": null,\n        \"specRevision\": 1\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T16:40:49.573Z\",\n        \"requestId\": \"85925ca31c90907326c849426c35449d\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Connection List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/connections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connections"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Connection List",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/connections",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 16:41:01 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "2739"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "679b823801e8744c87a7e1b00c369347"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "99"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"ab3-7k1r3bi6GsTTTr0sNwVp4ueUsto\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully retrieved Connections list\",\n    \"data\": [\n        {\n            \"id\": \"01KV55DMSYH6PT9SFVEV5T1KTA\",\n            \"name\": \"EV Battery Assembly Line – Webhook\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T08:12:28.445Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV5XKC3C5P64TECDBJKE0H2C\",\n            \"name\": \"Cleantron Webhook - 02\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T15:15:02.446Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV5XM41QMYQAHDXH0E99X3RY\",\n            \"name\": \"Cleantron Webhook - 02\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T15:15:26.541Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV5XWACNKZJY0A0D25DJX8RY\",\n            \"name\": \"Cleantron Webhook - 02\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T15:19:55.431Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV5ZMH8BWNDNXW4Z8MNP372V\",\n            \"name\": \"Cleantron Webhook - 02\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T15:50:37.115Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV5ZMV9T306E1A7XXGT63W6S\",\n            \"name\": \"Cleantron Webhook - 03\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T15:50:47.436Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV600PBP657JRF9644BTDV9K\",\n            \"name\": \"EV Battery Assembly Line – Webhook 01\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T15:57:15.564Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV60H3E4BDA7A5ZJBQQJS9ED\",\n            \"name\": \"Cleantron Webhook - 03\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T16:06:13.232Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV60J1CZD956TERXYP6WSCSS\",\n            \"name\": \"EV Battery Assembly Line – Webhook 01 (Farid)\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T16:06:43.905Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        },\n        {\n            \"id\": \"01KV6199DW7K25PPQ3NDQ47VSX\",\n            \"name\": \"EV Battery Assembly Line – Webhook 02 (Farid)\",\n            \"providerType\": \"webhook_receive\",\n            \"lifecycleState\": \"active\",\n            \"tenantId\": \"01KP7KHVPH6NSYC8ZDE6REEX8N\",\n            \"createdAt\": \"2026-06-15T16:19:25.795Z\",\n            \"lastTestedAt\": null,\n            \"specRevision\": 1\n        }\n    ],\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T16:41:01.332Z\",\n        \"requestId\": \"679b823801e8744c87a7e1b00c369347\"\n    },\n    \"pagination\": {\n        \"offset\": 0,\n        \"limit\": 10,\n        \"count\": 12\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Connection Health Check",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Instagrid Fleet Targeted Update\",\n    \"description\": \"Updates all devices by serial number\",\n    \"mappingProfileId\": \"01KTRYTD67D491TZQ8Y6N44Z2J\",\n    \"responsibility\": \"update\",\n    \"triggerType\": \"scheduled\",\n    \"scheduleExpression\": \"0 3 * * *\",\n    \"sourceQueryJson\": {\n        \"resourcePath\": \"/api/aemp/v2/15143/-3/Equipment/{unitIdentifier}\",\n        \"unitIdentifierSelection\": \"all\"\n    },\n    \"maxItemsPerRun\": 100\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/connections/{{CONNECTION_ID}}/health",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{CONNECTION_ID}}",
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Connection Health Check",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/connections/{{CONNECTION_ID}}/health",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "connections",
+                    "{{CONNECTION_ID}}",
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 16:41:26 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "260"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "eab0a84b264ec07b12e87467909ca49f"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "99"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"104-gvnefjg+iU7by/6KEU8u0gdev7s\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"lifecycleState\": \"active\",\n        \"lastTestedAt\": null,\n        \"lastTestResult\": null,\n        \"lastUsedAt\": null,\n        \"recentTestFailures\": 0,\n        \"recentAuthFailures\": 0\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T16:41:26.155Z\",\n        \"requestId\": \"eab0a84b264ec07b12e87467909ca49f\"\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhook Ingest",
+      "item": [
+        {
+          "name": "Get Webhook Spec",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if( pm.response.code === 200 ) {",
+                  "    pm.test(\"Status code is 200\", function () {",
+                  "        pm.response.to.have.status(200);",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}/spec",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "webhooks",
+                "dpps",
+                "{{CONNECTION_ID}}",
+                "spec"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Webhook Spec",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}/spec",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    "dpps",
+                    "{{CONNECTION_ID}}",
+                    "spec"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 16:41:49 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "16579"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "3c82bd42c193a3f3b3767cf9e983284a"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "99"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"40c3-6pqsdtDT1w4cfFnGCm0RxdthcCA\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"qualityControlReport\": {\n                \"fields\": {\n                    \"soc\": {\n                        \"max\": 55,\n                        \"min\": 45,\n                        \"type\": \"decimal\",\n                        \"required\": false,\n                        \"guiInputType\": \"range\"\n                    },\n                    \"soh\": {\n                        \"type\": \"number\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"baudrate\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"cellType\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"unit\": \"Volt\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"mpc2IdNode\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"packSerial\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"cycleTester\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"goldenImage\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"unit\": \"Volt\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"packVoltage\": {\n                        \"max\": 53770,\n                        \"min\": 48000,\n                        \"type\": \"number\",\n                        \"required\": false,\n                        \"guiInputType\": \"range\"\n                    },\n                    \"slumberTime\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"temperature\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"chargeWakeUp\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"commProtocol\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"mpc2Protocol\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"mpc2MaxActive\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"mpc2MinActive\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"parameterCode\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"prechargeTime\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"prechargeType\": {\n                        \"type\": \"number\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"firmwareVersion\": {\n                        \"type\": \"decimal\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"cellUnderVoltage\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"prechargeVoltage\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"recChargeCurrent\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"softwareKeySwitch\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"deltaqChargeCurrent\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"cellUnderVoltRecovery\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"softwareCanTermination\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    }\n                }\n            },\n            \"batteryCarbonFootprint\": {\n                \"fields\": {\n                    \"absoluteBatteryCarbonFootprint\": {\n                        \"type\": \"number\",\n                        \"unit\": \"tonne carbon dioxide equivalent\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"carbonFootprintPerformanceClass\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"webLinkToPublicCarbonFootprintStudy\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"application/pdf\"\n                        ],\n                        \"type\": \"file\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"batteryCarbonFootprintPerFunctionalUnit\": {\n                        \"type\": \"decimal\",\n                        \"unit\": \"Kilograms CO₂ equivalent per functional unit\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"contributionOfDistributionLifecycleStage\": {\n                        \"type\": \"decimal\",\n                        \"unit\": \"Kilograms CO₂ equivalent per functional unit\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"contributionOfEndOfLifeAndRecyclingLifecycleStage\": {\n                        \"type\": \"decimal\",\n                        \"unit\": \"Kilograms CO₂ equivalent per functional unit\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"contributionOfMainProductProduction/ManufacturingLifecycleStage\": {\n                        \"type\": \"decimal\",\n                        \"unit\": \"Kilograms CO₂ equivalent per functional unit\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"contributionOfRawMaterialAcquisitionAndPre-processingLifecycleStage\": {\n                        \"type\": \"decimal\",\n                        \"unit\": \"Kilograms CO₂ equivalent per functional unit\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    }\n                }\n            },\n            \"supplyChainDueDiligence\": {\n                \"fields\": {\n                    \"supplyChainIndices\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"informationOfDueDiligenceReport\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"application/pdf\"\n                        ],\n                        \"type\": \"file\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"third-partyAssurancesOfRecognisedSchemes\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    }\n                }\n            },\n            \"identifierAndProductData\": {\n                \"fields\": {\n                    \"dppStatus\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"batteryMass\": {\n                        \"type\": \"decimal\",\n                        \"unit\": \"Kilogram\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"batteryName\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"batteryImage\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"image/jpeg\",\n                            \"image/png\",\n                            \"image/webp\"\n                        ],\n                        \"type\": \"image\",\n                        \"required\": false,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"batteryStatus\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"dppGranularity\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"batteryCategory\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"dppSchemaVersion\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"manufacturingDate\": {\n                        \"type\": \"date\",\n                        \"required\": true,\n                        \"guiInputType\": \"date\"\n                    },\n                    \"manufacturingPlace\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"batterySerialNumber\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"batteryModelIdentifier\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"manufacturerInformation\": {\n                        \"max\": 512,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"textarea\"\n                    },\n                    \"uniqueBatteryIdentifier\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\",\n                        \"isUnitIdentifier\": true\n                    },\n                    \"uniqueFacilityIdentifier\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"warrantyPeriodOfTheBattery\": {\n                        \"type\": \"date\",\n                        \"required\": true,\n                        \"guiInputType\": \"date\"\n                    },\n                    \"economicOperatorInformation\": {\n                        \"max\": 512,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"textarea\"\n                    },\n                    \"date-timeOfLatestUpdateOfDpp\": {\n                        \"type\": \"date\",\n                        \"required\": false,\n                        \"guiInputType\": \"date\"\n                    },\n                    \"uniqueManufacturerIdentifier\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"dateOfPuttingBatteryIntoService\": {\n                        \"type\": \"date\",\n                        \"required\": true,\n                        \"guiInputType\": \"date\"\n                    },\n                    \"uniqueBatteryPassportIdentifier\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": false,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"uniqueEconomicOperatorIdentifier\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    }\n                }\n            },\n            \"performanceAndDurability\": {\n                \"sections\": {\n                    \"negativeEvents\": {\n                        \"fields\": {\n                            \"informationOnAccidents\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            },\n                            \"numberOfOverchargeEvents\": {\n                                \"type\": \"number\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"numberOfDeepDischargeEvents\": {\n                                \"type\": \"number\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"batteryLifetime\": {\n                        \"fields\": {\n                            \"energyThroughput\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Kilowatt-hour\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"capacityThroughput\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ampere-hour\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"cycle-lifeReferenceTest\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"expectedLifetimeInCalendarYears\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Years\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"c-rateOfRelevantCycle-lifeTest(a/ah)\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ampere per Ampere-hour\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"numberOf(full)Charging-dischargingCycles\": {\n                                \"type\": \"decimal\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"expectedLifetime:NumberOfCharge-dischargeCycles\": {\n                                \"type\": \"decimal\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"powerCapability\": {\n                        \"fields\": {\n                            \"powerFade\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"originalPowerCapability\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Watt\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"remainingPowerCapability\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Watt\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"maximumPermittedBatteryPower\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Watt\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"ratioBetweenNominalAllowedBatteryPower(w)AndBatteryEnergy(wh)\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"watt per watt-hour\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"internalResistance\": {\n                        \"fields\": {\n                            \"initialInternalResistanceOfBatteryCell\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ohm\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"initialInternalResistanceOfBatteryPack\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ohm\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"internalResistanceIncreaseOfBatteryCell\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"internalResistanceIncreaseOfBatteryPack\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"initialInternalResistanceOfBatteryModule\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ohm\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"internalResistanceIncreaseOfBatteryModule\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"temperatureConditions\": {\n                        \"fields\": {\n                            \"temperatureInformation\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"°C\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"temperatureRangeIdleState,LowerBoundary\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"°C\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"temperatureRangeIdleState,UpperBoundary\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"°C\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"timeSpentInExtremeTemperaturesAboveBoundary\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"minutes\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"timeSpentInExtremeTemperaturesBelowBoundary\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"minutes\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"timeSpentChargingDuringExtremeTemperaturesAboveBoundary\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"minutes\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"timeSpentChargingDuringExtremeTemperaturesBelowBoundary\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"minutes\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"batteryCapacity,Energy,Voltage\": {\n                        \"fields\": {\n                            \"capacityFade\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"ratedCapacity\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ampere-hour\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"maximumVoltage\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Volt\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"minimumVoltage\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Volt\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"nominalVoltage\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Volt\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"remainingCapacity\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Ampere-hour\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"stateOfCharge(soc)\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"energyRoundTripEfficiency,Self-discharge\": {\n                        \"fields\": {\n                            \"currentSelf-dischargingRate\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"percent per month\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"initialSelf-dischargingRate\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"percent per month\",\n                                \"required\": false,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"energyRoundTripEfficiencyFade\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"evolutionOfSelf-dischargingRates\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"initialRoundTripEnergyEfficiency\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"remainingRoundTripEnergyEfficiency\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"roundTripEnergyEfficiencyAt50%OfCycleLife\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    }\n                }\n            },\n            \"batteryMaterials&Composition\": {\n                \"fields\": {\n                    \"batteryChemistry\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    },\n                    \"criticalRawMaterials\": {\n                        \"max\": 512,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"textarea\"\n                    },\n                    \"impactOfSubstancesOnTheEnvironment,HumanHealth,Safety,Persons\": {\n                        \"max\": 64,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"input\"\n                    }\n                },\n                \"sections\": {\n                    \"hazardousSubstance-1\": {\n                        \"fields\": {\n                            \"name\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"location\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"casNumber\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"concentration\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"hazardClass/category\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"materialsUsedInAnode\": {\n                        \"fields\": {\n                            \"name\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"casNumber\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"concentration\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"materialsUsedInCathode\": {\n                        \"fields\": {\n                            \"name\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"casNumber\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"concentration\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"materialsUsedInElectrolyte\": {\n                        \"fields\": {\n                            \"name\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"casNumber\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"concentration\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    }\n                }\n            },\n            \"circularityAndResourceEfficiency\": {\n                \"sections\": {\n                    \"circularityInformation\": {\n                        \"fields\": {\n                            \"safetyMeasures\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            },\n                            \"partNumbersForComponents\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            },\n                            \"webAddressOfSourcesForSpareParts\": {\n                                \"max\": 64,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"e-mailAddressOfSourcesForSpareParts\": {\n                                \"max\": 512,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"textarea\"\n                            },\n                            \"postalAddressOfSourcesForSpareParts\": {\n                                \"max\": 512,\n                                \"min\": 3,\n                                \"type\": \"string\",\n                                \"required\": true,\n                                \"guiInputType\": \"textarea\"\n                            },\n                            \"dismantlingInformation:ManualsForTheRemovalAndDisassemblyOfTheBattery\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            }\n                        }\n                    },\n                    \"recycled&RenewableContent\": {\n                        \"fields\": {\n                            \"recycledLeadShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"renewableContentShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"pre-consumerRecycledCobaltShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"pre-consumerRecycledNickelShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"post-consumerRecycledCobaltShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"post-consumerRecycledNickelShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"pre-consumerRecycledLithiumShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            },\n                            \"post-consumerRecycledLithiumShare\": {\n                                \"type\": \"decimal\",\n                                \"unit\": \"Percent\",\n                                \"required\": true,\n                                \"guiInputType\": \"input\"\n                            }\n                        }\n                    },\n                    \"roleOfEnd-userInWastePreventionAndCollection\": {\n                        \"fields\": {\n                            \"informationOnTheRoleOfEnd-usersInContributingToWastePrevention\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            },\n                            \"informationOnBatteryCollection,PreparationForSecondLifeAndOnTreatmentAtEndOfLife\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            },\n                            \"informationOnTheRoleOfEnd-usersInContributingToSeparateCollectionOfWasteBatteries\": {\n                                \"max\": null,\n                                \"enum\": [\n                                    \"application/pdf\"\n                                ],\n                                \"type\": \"file\",\n                                \"required\": true,\n                                \"guiInputType\": \"upload\"\n                            }\n                        }\n                    }\n                }\n            },\n            \"symbols,LabelsAndDocumentationOfConformity\": {\n                \"fields\": {\n                    \"extinguishingAgent\": {\n                        \"max\": 512,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"textarea\"\n                    },\n                    \"carbonFootprintLabel\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"image/jpeg\",\n                            \"image/png\",\n                            \"image/webp\"\n                        ],\n                        \"type\": \"image\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"separateCollectionSymbol\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"image/jpeg\",\n                            \"image/png\",\n                            \"image/webp\"\n                        ],\n                        \"type\": \"image\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"symbolsForCadmiumAndLead\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"image/jpeg\",\n                            \"image/png\",\n                            \"image/webp\"\n                        ],\n                        \"type\": \"image\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"euDeclarationOfConformity\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"application/pdf\"\n                        ],\n                        \"type\": \"file\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    },\n                    \"meaningOfLabelsAndSymbols\": {\n                        \"max\": 512,\n                        \"min\": 3,\n                        \"type\": \"string\",\n                        \"required\": true,\n                        \"guiInputType\": \"textarea\"\n                    },\n                    \"resultsOfTestReportsProvingCompliance\": {\n                        \"max\": null,\n                        \"enum\": [\n                            \"application/pdf\"\n                        ],\n                        \"type\": \"file\",\n                        \"required\": true,\n                        \"guiInputType\": \"upload\"\n                    }\n                }\n            }\n        },\n        \"productId\": \"01KTY0YXQW5P7N3WET63Z7EMMJ\",\n        \"generatedAt\": \"2026-06-15T16:40:37.237Z\",\n        \"specVersion\": \"1.0\",\n        \"specRevision\": 1,\n        \"unitIdentifierPath\": \"data.identifierAndProductData.fields.uniqueBatteryIdentifier\",\n        \"unitIdentifierFieldId\": \"01KTXXC34F5KGP6NVPHK6RY2HP\",\n        \"generatedFromTemplateVersion\": \"01KTXXBY4R4HBAGQE3JXQZ16PC\"\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T16:41:49.985Z\",\n        \"requestId\": \"3c82bd42c193a3f3b3767cf9e983284a\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Webhook Data Ingestion - Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const CryptoJS = require('crypto-js');",
+                  "",
+                  "const secret = pm.environment.get('DPP_WEBHOOK_SECRET')",
+                  "            || pm.collectionVariables.get('DPP_WEBHOOK_SECRET');",
+                  "if (!secret) { throw new Error('DPP_WEBHOOK_SECRET is not set'); }",
+                  "",
+                  "// Source payload comes from the dppPayload variable (resolve any {{vars}} inside it).",
+                  "// const payload = JSON.parse(pm.variables.replaceIn(",
+                  "//   pm.collectionVariables.get('dppPayload') || pm.environment.get('dppPayload') || '{}'",
+                  "// ));",
+                  "",
+                  "const payload = JSON.parse(pm.request.body.raw);",
+                  "",
+                  "// console.log(payload.data.identifierAndProductData.fields.uniqueBatteryIdentifier)",
+                  "",
+                  "payload.messageId = pm.variables.replaceIn('{{$guid}}');",
+                  "// payload.data.identifierAndProductData.fields.uniqueBatteryIdentifier = pm.environment.get('UnitIdentifer')",
+                  "payload.data.identifierAndProductData.fields.uniqueBatteryIdentifier = pm.variables.replaceIn('{{UnitIdentifer}}');",
+                  "",
+                  "const body = JSON.stringify(payload);",
+                  "const timestamp = new Date().toISOString();",
+                  "const signature = CryptoJS.HmacSHA256(`${timestamp}.${body}`, secret).toString(CryptoJS.enc.Hex);",
+                  "",
+                  "// Body tab is {{dppBody}}, so Postman sends exactly this string.",
+                  "// pm.variables.set('body', body);",
+                  "pm.request.body = body;",
+                  "pm.request.headers.upsert({ key: 'Content-Type',    value: 'application/json' });",
+                  "pm.request.headers.upsert({ key: 'X-DPP-Timestamp', value: timestamp });",
+                  "pm.request.headers.upsert({ key: 'X-DPP-Signature', value: signature });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if( pm.response.code === 200 ) {",
+                  "    const body = JSON.parse(pm.request.body.raw)",
+                  "    pm.collectionVariables.set('UnitIdentifer', body.data.identifierAndProductData.fields.uniqueBatteryIdentifier)",
+                  "    pm.test(\"Status code is 200\", function () {",
+                  "        pm.response.to.have.status(200);",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "content-type": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-DPP-Timestamp",
+                "value": "2026-06-12T07:41:42.301Z",
+                "type": "text"
+              },
+              {
+                "key": "X-DPP-Signature",
+                "value": "18b4d1c18516334618a95a0aca5c302adafa965aadeaaffeaced547e89a19465",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"specVersion\": \"1.0\",\n    \"messageId\": \"{{MESSAGE_ID}}\",\n    \"timestamp\": \"2026-05-22T10:00:00.000Z\",\n    \"operation\": \"upsert\",\n    \"data\": {\n        \"identifierAndProductData\": {\n            \"fields\": {\n                \"batteryName\": \"P5X EV Battery Pack 2000kWh\",\n                \"batterySerialNumber\": \"BAT-2026-00001\",\n                \"batteryModelIdentifier\": \"EVB-1000KWH-X1\",\n                \"manufacturerInformation\": \"ABC Battery Manufacturing Ltd.\",\n                \"uniqueBatteryIdentifier\": \"{{UnitIdentifer}}\"\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "webhooks",
+                "dpps",
+                "{{CONNECTION_ID}}"
+              ]
+            },
+            "description": "Ingests Digital Product Passport (DPP) data into the system via a registered webhook connection. This endpoint receives structured product data payloads from external partners or internal services and processes them as upsert operations against the DPP data store.\n\n## Endpoint\n\n`POST {{baseUrl}}/webhooks/dpps/:connectionId`\n\n## Path Parameters\n\n| Parameter | Description |\n|---|---|\n| `connectionId` | The unique identifier of the registered webhook connection (e.g. `01KTX7DVTM1SE2F1VYD256FT8A`). |\n\n## Request Headers\n\n| Header | Required | Description |\n|---|---|---|\n| `Content-Type` | Yes | Must be `application/json`. |\n| `X-DPP-Timestamp` | Yes | ISO 8601 UTC timestamp of when the request was generated (e.g. `2026-06-12T07:41:42.301Z`). Used for replay-attack prevention. |\n| `X-DPP-Signature` | Yes | HMAC signature of the request payload, used to verify the authenticity and integrity of the incoming data. |\n\n## Request Body\n\nThe body must be a JSON object conforming to the DPP message envelope schema.\n\n### Top-Level Fields\n\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `specVersion` | string | Yes | Version of the DPP message specification (e.g. `\"1.0\"`). |\n| `messageId` | string | Yes | A unique identifier for this message, used for deduplication (e.g. `\"unique-msg-id-013\"`). |\n| `timestamp` | string (ISO 8601) | Yes | The timestamp at which the data event occurred. |\n| `operation` | string | Yes | The operation type. Currently supported: `\"upsert\"`. |\n| `data` | object | Yes | The DPP data payload. See sections below. |\n\n### `data.materialsAndComposition`\n\nContains material composition and hazardous substance information.\n\n#### `sections.materials.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `batteryChemistry` | string | The battery chemistry type (e.g. `\"Lithium Iron Phosphate (LFP)\"`). |\n| `criticalRawMaterial` | string | The critical raw material used (e.g. `\"Lithium\"`). |\n\n#### `sections.hazardousSubstance.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `name` | string | Name of the hazardous substance (e.g. `\"Cobalt\"`). |\n| `impact` | string | Environmental or health impact description. |\n| `location` | string | Location of the substance within the product (e.g. `\"Battery Cathode\"`). |\n| `indentifiers` | string | CAS number or other substance identifier (e.g. `\"CAS-7440-48-4\"`). |\n| `hazardousClasses` | string | Hazard classification (e.g. `\"Acute Toxicity Category 4\"`). |\n| `concentrationRange` | number | Concentration of the substance as a percentage (e.g. `8.5`). |\n\n### `data.generalProductAndManufacturerInfo`\n\nContains general product and manufacturer details.\n\n#### `sections.productAndManufacturerInformation.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `gtin` | string | Global Trade Item Number (e.g. `\"09506000123456\"`). |\n| `productName` | string | Human-readable product name (e.g. `\"Cleantron Battery Pack - 13\"`). |\n| `productSerialNumber` | string | Unique serial number for this product unit. |\n| `productBatchNumber` | string | Batch/lot number for traceability. |\n| `productModelNumber` | string | Model number (e.g. `\"EVBP-60-LFP\"`). |\n| `productWeight` | number | Product weight in grams (e.g. `420`). |\n| `manufactureDate` | string (ISO 8601) | Date of manufacture (e.g. `\"2026-01-15\"`). |\n| `manufacturePlace` | string | Location where the product was manufactured. |\n| `manufacturerIdentification` | string | Internal manufacturer ID (e.g. `\"MFG-BD-001\"`). |\n| `expiryDate` | string (ISO 8601) | Product expiry date (e.g. `\"2035-12-31\"`). |\n| `productImage` | string (URL) | URL to an image of the product. |\n\n## Example Response\n\n```json\n{\n  \"status\": \"success\",\n  \"data\": {\n    \"inboxId\": \"01KTXCFX6Q5W113R3Q257V4WWA\",\n    \"duplicate\": false\n  },\n  \"metadata\": {\n    \"timestamp\": \"2026-06-12T07:42:07.076Z\",\n    \"requestId\": \"req_01KTXCFX6GVJSEEVZT8R6QB6HN\"\n  }\n}\n```\n\n| Field | Description |\n|---|---|\n| `data.inboxId` | The unique ID assigned to this ingested message in the DPP inbox. |\n| `data.duplicate` | `true` if a message with the same `messageId` was already processed; `false` otherwise. |\n| `metadata.timestamp` | Server-side processing timestamp. |\n| `metadata.requestId` | Unique server-side request trace ID. |"
+          },
+          "response": [
+            {
+              "name": "Webhook Data Ingestion - Create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-DPP-Timestamp",
+                    "value": "2026-06-12T07:41:42.301Z",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-DPP-Signature",
+                    "value": "18b4d1c18516334618a95a0aca5c302adafa965aadeaaffeaced547e89a19465",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"specVersion\": \"1.0\",\n    \"messageId\": \"{{MESSAGE_ID}}\",\n    \"timestamp\": \"2026-05-22T10:00:00.000Z\",\n    \"operation\": \"upsert\",\n    \"data\": {\n        \"identifierAndProductData\": {\n            \"fields\": {\n                \"batteryName\": \"P5X EV Battery Pack 2000kWh\",\n                \"batterySerialNumber\": \"BAT-2026-00001\",\n                \"batteryModelIdentifier\": \"EVB-1000KWH-X1\",\n                \"manufacturerInformation\": \"ABC Battery Manufacturing Ltd.\",\n                \"uniqueBatteryIdentifier\": \"{{UnitIdentifer}}\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    "dpps",
+                    "{{CONNECTION_ID}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 17:04:28 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "328"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "9dcce579069800b895e0974fadce6f19"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "99"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"148-0BCzK5yweJK6obIE+L0d6aeWUGY\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Payload acknowledged. Please note acknowledgement does not guarantee successful processing. Any defected payload will be rejected.\",\n    \"data\": {\n        \"inboxId\": \"01KV63VRDB79X1VVBB3B9N084F\",\n        \"duplicate\": false\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T17:04:28.082Z\",\n        \"requestId\": \"9dcce579069800b895e0974fadce6f19\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Webhook Data Ingestion - Publish",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const CryptoJS = require('crypto-js');",
+                  "",
+                  "const secret = pm.environment.get('DPP_WEBHOOK_SECRET')",
+                  "            || pm.collectionVariables.get('DPP_WEBHOOK_SECRET');",
+                  "if (!secret) { throw new Error('DPP_WEBHOOK_SECRET is not set'); }",
+                  "",
+                  "const payload = JSON.parse(pm.request.body.raw);",
+                  "",
+                  "",
+                  "payload.messageId = pm.variables.replaceIn('{{$guid}}')",
+                  "payload.unitIdentifierValue = pm.variables.replaceIn('{{UnitIdentifer}}');",
+                  "",
+                  "const body = JSON.stringify(payload);",
+                  "const timestamp = new Date().toISOString();",
+                  "const signature = CryptoJS.HmacSHA256(`${timestamp}.${body}`, secret).toString(CryptoJS.enc.Hex);",
+                  "",
+                  "// Body tab is {{dppBody}}, so Postman sends exactly this string.",
+                  "// pm.variables.set('body', body);",
+                  "pm.request.body = body;",
+                  "pm.request.headers.upsert({ key: 'Content-Type',    value: 'application/json' });",
+                  "pm.request.headers.upsert({ key: 'X-DPP-Timestamp', value: timestamp });",
+                  "pm.request.headers.upsert({ key: 'X-DPP-Signature', value: signature });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if( pm.response.code === 200 ) {",
+                  "    pm.test(\"Status code is 200\", function () {",
+                  "        pm.response.to.have.status(200);",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "content-type": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-DPP-Timestamp",
+                "value": "2026-06-13T17:52:51.621Z",
+                "type": "text"
+              },
+              {
+                "key": "X-DPP-Signature",
+                "value": "9949c8a41e6e1c78dcfa39c403ebcb25948ebd03e3b8d9162590a030a1582c9b",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"specVersion\": \"1.0\",\n    \"messageId\": \"{{MESSAGE_ID}}\",\n    \"timestamp\": \"2026-05-22T10:00:00.000Z\",\n    \"operation\": \"status_update\",\n    \"unitIdentifierValue\": \"{{UnitIdentifer}}\",\n    \"status\": \"published\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}/activate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "webhooks",
+                "dpps",
+                "{{CONNECTION_ID}}",
+                "activate"
+              ]
+            },
+            "description": "Ingests Digital Product Passport (DPP) data into the system via a registered webhook connection. This endpoint receives structured product data payloads from external partners or internal services and processes them as upsert operations against the DPP data store.\n\n## Endpoint\n\n`POST {{baseUrl}}/webhooks/dpps/:connectionId`\n\n## Path Parameters\n\n| Parameter | Description |\n|---|---|\n| `connectionId` | The unique identifier of the registered webhook connection (e.g. `01KTX7DVTM1SE2F1VYD256FT8A`). |\n\n## Request Headers\n\n| Header | Required | Description |\n|---|---|---|\n| `Content-Type` | Yes | Must be `application/json`. |\n| `X-DPP-Timestamp` | Yes | ISO 8601 UTC timestamp of when the request was generated (e.g. `2026-06-12T07:41:42.301Z`). Used for replay-attack prevention. |\n| `X-DPP-Signature` | Yes | HMAC signature of the request payload, used to verify the authenticity and integrity of the incoming data. |\n\n## Request Body\n\nThe body must be a JSON object conforming to the DPP message envelope schema.\n\n### Top-Level Fields\n\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `specVersion` | string | Yes | Version of the DPP message specification (e.g. `\"1.0\"`). |\n| `messageId` | string | Yes | A unique identifier for this message, used for deduplication (e.g. `\"unique-msg-id-013\"`). |\n| `timestamp` | string (ISO 8601) | Yes | The timestamp at which the data event occurred. |\n| `operation` | string | Yes | The operation type. Currently supported: `\"upsert\"`. |\n| `data` | object | Yes | The DPP data payload. See sections below. |\n\n### `data.materialsAndComposition`\n\nContains material composition and hazardous substance information.\n\n#### `sections.materials.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `batteryChemistry` | string | The battery chemistry type (e.g. `\"Lithium Iron Phosphate (LFP)\"`). |\n| `criticalRawMaterial` | string | The critical raw material used (e.g. `\"Lithium\"`). |\n\n#### `sections.hazardousSubstance.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `name` | string | Name of the hazardous substance (e.g. `\"Cobalt\"`). |\n| `impact` | string | Environmental or health impact description. |\n| `location` | string | Location of the substance within the product (e.g. `\"Battery Cathode\"`). |\n| `indentifiers` | string | CAS number or other substance identifier (e.g. `\"CAS-7440-48-4\"`). |\n| `hazardousClasses` | string | Hazard classification (e.g. `\"Acute Toxicity Category 4\"`). |\n| `concentrationRange` | number | Concentration of the substance as a percentage (e.g. `8.5`). |\n\n### `data.generalProductAndManufacturerInfo`\n\nContains general product and manufacturer details.\n\n#### `sections.productAndManufacturerInformation.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `gtin` | string | Global Trade Item Number (e.g. `\"09506000123456\"`). |\n| `productName` | string | Human-readable product name (e.g. `\"Cleantron Battery Pack - 13\"`). |\n| `productSerialNumber` | string | Unique serial number for this product unit. |\n| `productBatchNumber` | string | Batch/lot number for traceability. |\n| `productModelNumber` | string | Model number (e.g. `\"EVBP-60-LFP\"`). |\n| `productWeight` | number | Product weight in grams (e.g. `420`). |\n| `manufactureDate` | string (ISO 8601) | Date of manufacture (e.g. `\"2026-01-15\"`). |\n| `manufacturePlace` | string | Location where the product was manufactured. |\n| `manufacturerIdentification` | string | Internal manufacturer ID (e.g. `\"MFG-BD-001\"`). |\n| `expiryDate` | string (ISO 8601) | Product expiry date (e.g. `\"2035-12-31\"`). |\n| `productImage` | string (URL) | URL to an image of the product. |\n\n## Example Response\n\n```json\n{\n  \"status\": \"success\",\n  \"data\": {\n    \"inboxId\": \"01KTXCFX6Q5W113R3Q257V4WWA\",\n    \"duplicate\": false\n  },\n  \"metadata\": {\n    \"timestamp\": \"2026-06-12T07:42:07.076Z\",\n    \"requestId\": \"req_01KTXCFX6GVJSEEVZT8R6QB6HN\"\n  }\n}\n```\n\n| Field | Description |\n|---|---|\n| `data.inboxId` | The unique ID assigned to this ingested message in the DPP inbox. |\n| `data.duplicate` | `true` if a message with the same `messageId` was already processed; `false` otherwise. |\n| `metadata.timestamp` | Server-side processing timestamp. |\n| `metadata.requestId` | Unique server-side request trace ID. |"
+          },
+          "response": [
+            {
+              "name": "Webhook Data Ingestion - Publish",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-DPP-Timestamp",
+                    "value": "2026-06-13T17:52:51.621Z",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-DPP-Signature",
+                    "value": "9949c8a41e6e1c78dcfa39c403ebcb25948ebd03e3b8d9162590a030a1582c9b",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"specVersion\": \"1.0\",\n    \"messageId\": \"{{MESSAGE_ID}}\",\n    \"timestamp\": \"2026-05-22T10:00:00.000Z\",\n    \"operation\": \"status_update\",\n    \"unitIdentifierValue\": \"{{UnitIdentifer}}\",\n    \"status\": \"published\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}/activate",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    "dpps",
+                    "{{CONNECTION_ID}}",
+                    "activate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 17:04:40 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "328"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "69715913fd9c0fad51732ecac46a3f2b"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "99"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"148-1oZZdmvJQND3l1QpTgd6kdNJ9EQ\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Payload acknowledged. Please note acknowledgement does not guarantee successful processing. Any defected payload will be rejected.\",\n    \"data\": {\n        \"inboxId\": \"01KV63W42JXKWGT2ME5YBS88X6\",\n        \"duplicate\": false\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T17:04:40.027Z\",\n        \"requestId\": \"69715913fd9c0fad51732ecac46a3f2b\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Webhook Data Ingestion - Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const CryptoJS = require('crypto-js');",
+                  "",
+                  "const secret = pm.environment.get('DPP_WEBHOOK_SECRET')",
+                  "            || pm.collectionVariables.get('DPP_WEBHOOK_SECRET');",
+                  "if (!secret) { throw new Error('DPP_WEBHOOK_SECRET is not set'); }",
+                  "",
+                  "// Source payload comes from the dppPayload variable (resolve any {{vars}} inside it).",
+                  "// const payload = JSON.parse(pm.variables.replaceIn(",
+                  "//   pm.collectionVariables.get('dppPayload') || pm.environment.get('dppPayload') || '{}'",
+                  "// ));",
+                  "",
+                  "const payload = JSON.parse(pm.request.body.raw);",
+                  "",
+                  "payload.messageId = pm.variables.replaceIn('{{$guid}}');",
+                  "payload.data.identifierAndProductData.fields.uniqueBatteryIdentifier = pm.variables.replaceIn('{{UnitIdentifer}}');",
+                  "",
+                  "const body = JSON.stringify(payload);",
+                  "const timestamp = new Date().toISOString();",
+                  "const signature = CryptoJS.HmacSHA256(`${timestamp}.${body}`, secret).toString(CryptoJS.enc.Hex);",
+                  "",
+                  "// Body tab is {{dppBody}}, so Postman sends exactly this string.",
+                  "// pm.variables.set('body', body);",
+                  "pm.request.body = body;",
+                  "pm.request.headers.upsert({ key: 'Content-Type',    value: 'application/json' });",
+                  "pm.request.headers.upsert({ key: 'X-DPP-Timestamp', value: timestamp });",
+                  "pm.request.headers.upsert({ key: 'X-DPP-Signature', value: signature });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if( pm.response.code === 200 ) {",
+                  "    pm.test(\"Status code is 200\", function () {",
+                  "        pm.response.to.have.status(200);",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "content-type": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-DPP-Timestamp",
+                "value": "2026-06-12T07:41:42.301Z",
+                "type": "text"
+              },
+              {
+                "key": "X-DPP-Signature",
+                "value": "18b4d1c18516334618a95a0aca5c302adafa965aadeaaffeaced547e89a19465",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"specVersion\": \"1.0\",\n    \"messageId\": \"unique-msg-id-0000008745\",\n    \"timestamp\": \"2026-05-22T10:00:00.000Z\",\n    \"operation\": \"upsert\",\n    \"data\": {\n        \"performanceAndDurability\": {\n      \"sections\": {\n        \"batteryCapacity,Energy,Voltage\": {\n          \"fields\": {\n            \"capacityFade\": 4.8,\n            \"ratedCapacity\": 210,\n            \"maximumVoltage\": 58.8,\n            \"minimumVoltage\": 42.0,\n            \"nominalVoltage\": 51.2,\n            \"remainingCapacity\": 199.92,\n            \"stateOfCharge(soc)\": 79\n          }\n        },\n        \"batteryLifetime\": {\n          \"fields\": {\n            \"energyThroughput\": 172500.8,\n            \"capacityThroughput\": 3420.6,\n            \"cycle-lifeReferenceTest\": \"IEC 62660-1\",\n            \"expectedLifetimeInCalendarYears\": 10.5,\n            \"c-rateOfRelevantCycle-lifeTest(a/ah)\": 1.0,\n            \"numberOf(full)Charging-dischargingCycles\": 2180,\n            \"expectedLifetime:NumberOfCharge-dischargeCycles\": 3000\n          }\n        },\n        \"powerCapability\": {\n          \"fields\": {\n            \"powerFade\": 6.2,\n            \"originalPowerCapability\": 150000,\n            \"remainingPowerCapability\": 140700,\n            \"maximumPermittedBatteryPower\": 160000,\n            \"ratioBetweenNominalAllowedBatteryPower(w)AndBatteryEnergy(wh)\": 1.95\n          }\n        },\n        \"internalResistance\": {\n          \"fields\": {\n            \"initialInternalResistanceOfBatteryCell\": 0.0145,\n            \"initialInternalResistanceOfBatteryPack\": 0.11,\n            \"internalResistanceIncreaseOfBatteryCell\": 3.8,\n            \"internalResistanceIncreaseOfBatteryPack\": 4.6,\n            \"initialInternalResistanceOfBatteryModule\": 0.042,\n            \"internalResistanceIncreaseOfBatteryModule\": 3.5\n          }\n        },\n        \"temperatureConditions\": {\n          \"fields\": {\n            \"temperatureInformation\": 26.8,\n            \"temperatureRangeIdleState,LowerBoundary\": -20,\n            \"temperatureRangeIdleState,UpperBoundary\": 60,\n            \"timeSpentInExtremeTemperaturesAboveBoundary\": 38,\n            \"timeSpentInExtremeTemperaturesBelowBoundary\": 15,\n            \"timeSpentChargingDuringExtremeTemperaturesAboveBoundary\": 8,\n            \"timeSpentChargingDuringExtremeTemperaturesBelowBoundary\": 4\n          }\n        },\n        \"energyRoundTripEfficiency,Self-discharge\": {\n          \"fields\": {\n            \"currentSelf-dischargingRate\": 1.05,\n            \"initialSelf-dischargingRate\": 0.75,\n            \"energyRoundTripEfficiencyFade\": 2.4,\n            \"evolutionOfSelf-dischargingRates\": 0.3,\n            \"initialRoundTripEnergyEfficiency\": 96.2,\n            \"remainingRoundTripEnergyEfficiency\": 93.8,\n            \"roundTripEnergyEfficiencyAt50%OfCycleLife\": 95.0\n          }\n        }\n      }\n        },\n        \"identifierAndProductData\": {\n            \"fields\": {\n                \"uniqueBatteryIdentifier\": \"{{UnitIdentifer}}\"\n            }\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "webhooks",
+                "dpps",
+                "{{CONNECTION_ID}}"
+              ]
+            },
+            "description": "Ingests Digital Product Passport (DPP) data into the system via a registered webhook connection. This endpoint receives structured product data payloads from external partners or internal services and processes them as upsert operations against the DPP data store.\n\n## Endpoint\n\n`POST {{baseUrl}}/webhooks/dpps/:connectionId`\n\n## Path Parameters\n\n| Parameter | Description |\n|---|---|\n| `connectionId` | The unique identifier of the registered webhook connection (e.g. `01KTX7DVTM1SE2F1VYD256FT8A`). |\n\n## Request Headers\n\n| Header | Required | Description |\n|---|---|---|\n| `Content-Type` | Yes | Must be `application/json`. |\n| `X-DPP-Timestamp` | Yes | ISO 8601 UTC timestamp of when the request was generated (e.g. `2026-06-12T07:41:42.301Z`). Used for replay-attack prevention. |\n| `X-DPP-Signature` | Yes | HMAC signature of the request payload, used to verify the authenticity and integrity of the incoming data. |\n\n## Request Body\n\nThe body must be a JSON object conforming to the DPP message envelope schema.\n\n### Top-Level Fields\n\n| Field | Type | Required | Description |\n|---|---|---|---|\n| `specVersion` | string | Yes | Version of the DPP message specification (e.g. `\"1.0\"`). |\n| `messageId` | string | Yes | A unique identifier for this message, used for deduplication (e.g. `\"unique-msg-id-013\"`). |\n| `timestamp` | string (ISO 8601) | Yes | The timestamp at which the data event occurred. |\n| `operation` | string | Yes | The operation type. Currently supported: `\"upsert\"`. |\n| `data` | object | Yes | The DPP data payload. See sections below. |\n\n### `data.materialsAndComposition`\n\nContains material composition and hazardous substance information.\n\n#### `sections.materials.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `batteryChemistry` | string | The battery chemistry type (e.g. `\"Lithium Iron Phosphate (LFP)\"`). |\n| `criticalRawMaterial` | string | The critical raw material used (e.g. `\"Lithium\"`). |\n\n#### `sections.hazardousSubstance.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `name` | string | Name of the hazardous substance (e.g. `\"Cobalt\"`). |\n| `impact` | string | Environmental or health impact description. |\n| `location` | string | Location of the substance within the product (e.g. `\"Battery Cathode\"`). |\n| `indentifiers` | string | CAS number or other substance identifier (e.g. `\"CAS-7440-48-4\"`). |\n| `hazardousClasses` | string | Hazard classification (e.g. `\"Acute Toxicity Category 4\"`). |\n| `concentrationRange` | number | Concentration of the substance as a percentage (e.g. `8.5`). |\n\n### `data.generalProductAndManufacturerInfo`\n\nContains general product and manufacturer details.\n\n#### `sections.productAndManufacturerInformation.fields`\n\n| Field | Type | Description |\n|---|---|---|\n| `gtin` | string | Global Trade Item Number (e.g. `\"09506000123456\"`). |\n| `productName` | string | Human-readable product name (e.g. `\"Cleantron Battery Pack - 13\"`). |\n| `productSerialNumber` | string | Unique serial number for this product unit. |\n| `productBatchNumber` | string | Batch/lot number for traceability. |\n| `productModelNumber` | string | Model number (e.g. `\"EVBP-60-LFP\"`). |\n| `productWeight` | number | Product weight in grams (e.g. `420`). |\n| `manufactureDate` | string (ISO 8601) | Date of manufacture (e.g. `\"2026-01-15\"`). |\n| `manufacturePlace` | string | Location where the product was manufactured. |\n| `manufacturerIdentification` | string | Internal manufacturer ID (e.g. `\"MFG-BD-001\"`). |\n| `expiryDate` | string (ISO 8601) | Product expiry date (e.g. `\"2035-12-31\"`). |\n| `productImage` | string (URL) | URL to an image of the product. |\n\n## Example Response\n\n```json\n{\n  \"status\": \"success\",\n  \"data\": {\n    \"inboxId\": \"01KTXCFX6Q5W113R3Q257V4WWA\",\n    \"duplicate\": false\n  },\n  \"metadata\": {\n    \"timestamp\": \"2026-06-12T07:42:07.076Z\",\n    \"requestId\": \"req_01KTXCFX6GVJSEEVZT8R6QB6HN\"\n  }\n}\n```\n\n| Field | Description |\n|---|---|\n| `data.inboxId` | The unique ID assigned to this ingested message in the DPP inbox. |\n| `data.duplicate` | `true` if a message with the same `messageId` was already processed; `false` otherwise. |\n| `metadata.timestamp` | Server-side processing timestamp. |\n| `metadata.requestId` | Unique server-side request trace ID. |"
+          },
+          "response": [
+            {
+              "name": "Webhook Data Ingestion - Update",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-DPP-Timestamp",
+                    "value": "2026-06-12T07:41:42.301Z",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-DPP-Signature",
+                    "value": "18b4d1c18516334618a95a0aca5c302adafa965aadeaaffeaced547e89a19465",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"specVersion\": \"1.0\",\n    \"messageId\": \"unique-msg-id-0000008745\",\n    \"timestamp\": \"2026-05-22T10:00:00.000Z\",\n    \"operation\": \"upsert\",\n    \"data\": {\n        \"qualityControlReport\": {\n            \"fields\": {\n                \"soc\": 50.5,\n                \"soh\": 98,\n                \"baudrate\": \"600Kbps\",\n                \"cellType\": \"Li-Ion\",\n                \"mpc2IdNode\": \"NODE-002\",\n                \"packSerial\": \"PACK-2026-005\",\n                \"cycleTester\": \"CT-2000\",\n                \"goldenImage\": \"GI-2.0\",\n                \"packVoltage\": 50000,\n                \"slumberTime\": \"30 minutes\",\n                \"temperature\": \"25°C\",\n                \"chargeWakeUp\": \"Enabled\",\n                \"commProtocol\": \"CAN\",\n                \"mpc2Protocol\": \"v2.1\",\n                \"mpc2MaxActive\": \"100\",\n                \"mpc2MinActive\": \"100\",\n                \"parameterCode\": \"PARAM-001\",\n                \"prechargeTime\": \"5 seconds\",\n                \"prechargeType\": 1,\n                \"firmwareVersion\": 2.5,\n                \"cellUnderVoltage\": \"2.8V\",\n                \"prechargeVoltage\": \"48V\",\n                \"recChargeCurrent\": \"50A\",\n                \"softwareKeySwitch\": \"Enabled\",\n                \"deltaqChargeCurrent\": \"25A\",\n                \"cellUnderVoltRecovery\": \"3.1V\",\n                \"softwareCanTermination\": \"120 Ohm\"\n            }\n        },\n        \"identifierAndProductData\": {\n            \"fields\": {\n                \"uniqueBatteryIdentifier\": \"{{UnitIdentifer}}\"\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{BASE_URL}}/webhooks/dpps/{{CONNECTION_ID}}",
+                  "host": [
+                    "{{BASE_URL}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    "dpps",
+                    "{{CONNECTION_ID}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 15 Jun 2026 17:04:52 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "328"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "access-control-expose-headers",
+                  "value": "X-Correlation-Id,X-Request-Id,X-RateLimit-Remaining,Retry-After,Location"
+                },
+                {
+                  "key": "content-security-policy",
+                  "value": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' data:;font-src 'self';object-src 'none';frame-ancestors 'none';form-action 'self';base-uri 'self';script-src-attr 'none';upgrade-insecure-requests"
+                },
+                {
+                  "key": "cross-origin-embedder-policy",
+                  "value": "require-corp"
+                },
+                {
+                  "key": "cross-origin-opener-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "cross-origin-resource-policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "origin-agent-cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "referrer-policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "x-content-type-options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "x-dns-prefetch-control",
+                  "value": "off"
+                },
+                {
+                  "key": "x-download-options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "x-frame-options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "x-permitted-cross-domain-policies",
+                  "value": "none"
+                },
+                {
+                  "key": "x-xss-protection",
+                  "value": "0"
+                },
+                {
+                  "key": "x-request-id",
+                  "value": "67d3c48d54d4dac96fbb1a4f8d2bda43"
+                },
+                {
+                  "key": "x-ratelimit-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-ratelimit-remaining",
+                  "value": "98"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"148-P4m4Y9iZH7oMHEhOJzyinclL0+A\""
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+                },
+                {
+                  "key": "access-control-max-age",
+                  "value": "1728000"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Payload acknowledged. Please note acknowledgement does not guarantee successful processing. Any defected payload will be rejected.\",\n    \"data\": {\n        \"inboxId\": \"01KV63WGB3YTF2FMQVTFP6YKTQ\",\n        \"duplicate\": false\n    },\n    \"metadata\": {\n        \"timestamp\": \"2026-06-15T17:04:52.585Z\",\n        \"requestId\": \"67d3c48d54d4dac96fbb1a4f8d2bda43\"\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "password",
+        "value": "shihab123456",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "shihab.khan@technovativesolutions.co.uk",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "password_credentials",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "EnUZPWT3lWbX86sXjN8Usg14WLFkTaZC",
+        "type": "string"
+      },
+      {
+        "key": "clientId",
+        "value": "client.frontend",
+        "type": "string"
+      },
+      {
+        "key": "tokenType",
+        "value": "",
+        "type": "string"
+      },
+      {
+        "key": "accessToken",
+        "value": "{{oken}}",
+        "type": "string"
+      },
+      {
+        "key": "tokenName",
+        "value": "Token",
+        "type": "string"
+      },
+      {
+        "key": "client_authentication",
+        "value": "header",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://cleantron-sso.digiprodpass.com/realms/01KP7KHVPH6NSYC8ZDE6REEX8N/protocol/openid-connect/token",
+        "type": "string"
+      },
+      {
+        "key": "refreshRequestParams",
+        "value": [],
+        "type": "any"
+      },
+      {
+        "key": "tokenRequestParams",
+        "value": [],
+        "type": "any"
+      },
+      {
+        "key": "authRequestParams",
+        "value": [],
+        "type": "any"
+      },
+      {
+        "key": "challengeAlgorithm",
+        "value": "S256",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "https://cleantron-api.digiprodpass.com/api"
+    },
+    {
+      "key": "CONNECTION_ID",
+      "value": "01KV62G32NV20A9XK9R2ZJ9J0T"
+    },
+    {
+      "key": "DPP_WEBHOOK_SECRET",
+      "value": "aiaQ457_6AsazMpkxrz_uOQAV2UaxivOkiqgwk0sVMA"
+    },
+    {
+      "key": "MESSAGE_ID",
+      "value": "47758cd6-1dd3-4e74-ab0f-7085de508419"
+    },
+    {
+      "key": "UnitIdentifer",
+      "value": "UBI-0000091010"
+    }
+  ]
+}
