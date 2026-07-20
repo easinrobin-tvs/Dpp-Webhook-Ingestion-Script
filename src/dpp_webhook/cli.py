@@ -653,7 +653,7 @@ def connections_command(args: argparse.Namespace) -> int:
     print(f"  ✅ Authenticated successfully")
 
     # Get base URL
-    base_url = args.base_url or os.getenv("DPP_BASE_URL")
+    base_url = args.base_url or os.getenv("DPP_BASE_URL", DEFAULT_BASE_URL)
     if not base_url:
         print(ui.err_line("DPP_BASE_URL or --base-url is required."))
         return 1
@@ -728,7 +728,7 @@ def health_command(args: argparse.Namespace) -> int:
     print(f"  ✅ Authenticated successfully")
 
     # Get base URL
-    base_url = args.base_url or os.getenv("DPP_BASE_URL")
+    base_url = args.base_url or os.getenv("DPP_BASE_URL", DEFAULT_BASE_URL)
     if not base_url:
         print(ui.err_line("DPP_BASE_URL or --base-url is required."))
         return 1
@@ -1448,7 +1448,7 @@ def build_parser() -> argparse.ArgumentParser:
         "workflow",
         help="Run initiate -> update -> activate for N DPPs end to end.",
     )
-    workflow.add_argument("--count", type=int, default=3, help="Number of DPPs to initiate. Defaults to 3.")
+    workflow.add_argument("--count", type=int, default=1, help="Number of DPPs to initiate. Defaults to 1.")
     workflow.add_argument("--yes", action="store_true", help="Skip confirmation prompts.")
     workflow.add_argument("--secret", help="Webhook secret. Defaults to DPP_WEBHOOK_SECRET.")
     workflow.add_argument("--url", help="Webhook ingestion URL. Defaults to DPP_WEBHOOK_URL.")

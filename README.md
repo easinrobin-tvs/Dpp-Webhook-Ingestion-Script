@@ -48,8 +48,8 @@ cp .env.example .env
 Runs the full initiate → update → activate pipeline for N DPPs. Supports interactive connection selection and battery name customization.
 
 ```bash
-dpp-webhook workflow --count 1
-dpp-webhook workflow --count 5 --yes
+dpp-webhook workflow                    # default: 1 DPP
+dpp-webhook workflow --count 2 --yes
 dpp-webhook workflow --dry-run --yes
 ```
 
