@@ -1487,6 +1487,7 @@ def add_operation_args(parser: argparse.ArgumentParser, operation: str) -> None:
         "--battery-name",
         help="Battery name. Will prompt if not provided.",
     )
+    parser.add_argument("--yes", action="store_true", help="Skip confirmation prompts.")
 
 
 def add_common_args(parser: argparse.ArgumentParser) -> None:
